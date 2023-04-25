@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors")
 const conexionDB = require("./db/config");
 const authRouter = require("./routes/auth");
-const homeRouter = require("./routes/home");
+const myAccountRouter = require("./routes/myaccount");
 const app = express();
 require("dotenv").config()
 
@@ -15,7 +15,7 @@ app.use(cors())
 app.use("/", express.static(__dirname + "/public"));
 
 app.use("/auth", authRouter)
-app.use("/home", homeRouter)
+app.use("/myaccount", myAccountRouter)
 
 
 

@@ -4,14 +4,6 @@ const jwt = require("jsonwebtoken")
 const usuarioModel = require("../models/usuario")
 
 const registerUsuario = async (req,res)=>{
-    const errors = validationResult(req)
-
-    if(!errors.isEmpty()){
-        return res.status(501).json({
-            ok:false,
-            errors:errors.mapped()
-        })
-    }
     const {email, password,username} =req.body; 
 
     try {
@@ -30,18 +22,23 @@ const registerUsuario = async (req,res)=>{
         nuevoUsuario.password = bcryptjs.hashSync(password,salt)
 
         await nuevoUsuario.save()
+        
+
+        // const equipoFavorito = new equipoFavoritoModel({equipo,corners,over1_5goals,yellow_cards})
+        // await equipoFavorito.save()
 
         const payload ={
             id: nuevoUsuario.id
         }
-
+        
         jwt.sign(payload,process.env.SECRETA,{expiresIn:3600},(error,token)=>{
             res.json({
                 ok:true,
                 id: nuevoUsuario.id,
                 username,
                 msg:"Usuario Creado",
-                token
+                token,
+                // equipoFavorito
             })
         })
     } catch (error) {
@@ -53,15 +50,7 @@ const registerUsuario = async (req,res)=>{
 }
 
 const loginUsuario = async (req,res)=>{
-    const errors = validationResult(req)
     
-    if(!errors.isEmpty()){
-        return res.status(501).json({
-            ok:false,
-            errors:errors.mapped()
-        })
-    }
-
     const {email, password} =req.body; 
 
     try {
