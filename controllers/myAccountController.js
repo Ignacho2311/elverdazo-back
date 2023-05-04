@@ -4,10 +4,10 @@ const Favorito = require("../models/preferences")
 const createPreferences = async (req,res)=>{
    
 
-    const {equipos,corners,over1_5goals,yellow_cards} = req.body
+    const {equipos,corners,over1_5goals,yellow_cards,goals_conceded_minutes,goals,cleansheets,draw,lost,goals_conceded,win,scoring_goal_minutes,failed_to_score} = req.body
     const id = req.uid
 
-    const newPreference= new Favorito({equipos,corners,over1_5goals,yellow_cards, creator:id})
+    const newPreference= new Favorito({equipos,corners,over1_5goals,yellow_cards,goals_conceded_minutes,goals,cleansheets,draw,lost,goals_conceded,win,scoring_goal_minutes,failed_to_score, creator:id})
     
     
     await newPreference.save()
