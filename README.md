@@ -17,3 +17,7 @@ Instrucciones para ejecutar el proyecto:
 
 A considerar:
 1. Si al ejecutar el comando sale un mensaje en la consola de 'Error al conectar a DB', lo más probable es que el internet que está bloqueando la conexión. (Esto sucede con la Red Wi-fi de la Universidad, por lo que si está conectado a la Red Wi-Fi de la Universidad u otra red que bloquee la BD, intentar con otra Red Wi-Fi como la de red móvil del celular por ejemplo).
+
+Integrantes:
+- Ignacio Candia
+- Carlos Ortega
