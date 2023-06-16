@@ -1,4 +1,4 @@
-# elverdazo
+# ElverdazoBack
 
 Instrucciones para ejecutar el proyecto:
 1. Clonar el repositorio o descargar carpeta del proyecto.
