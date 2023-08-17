@@ -12,16 +12,18 @@ conexionDB()
 app.use(express.json())
 app.use(cors())
 
-app.use("/api/proxy", createProxyMiddleware({
+app.use("/proxy", createProxyMiddleware({
     target: "https://api.sportmonks.com/v3",
     changeOrigin: true,
     pathRewrite: {
-      "^/": "" // Elimina el prefijo /api/proxy de la ruta
+      "^/proxy": "" // Elimina el prefijo /proxy de la ruta
     },
     headers: {
-      "Authorization": "5CmvZkaC2QfE3LM0OP8c1mX1uCQrN43nbHNuLSiltjWucCjLw1CBwSDsuHd4" // Agrega tu token de API aquí
+        "Authorization": "5CmvZkaC2QfE3LM0OP8c1mX1uCQrN43nbHNuLSiltjWucCjLw1CBwSDsuHd4" // Agrega tu token de API aquí
     }
   }));
+  
+  
 
 
 app.use("/", express.static(__dirname + "/public"));
